@@ -22,8 +22,13 @@ library
                      , reflex
                      , reflex-dom
                      , stm
+                     , optparse-applicative
+                     , lens-simple
+                     , containers
   default-language:    Haskell2010
   default-extensions:  LambdaCase
+                     , RecursiveDo
+                     , OverloadedStrings
 
 executable opt-reflex
   hs-source-dirs:      app
