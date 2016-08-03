@@ -1,4 +1,4 @@
-module GHCJS.Internal.Options where
+module GHCJS.Internal.Options (mainWith) where
 
 import Control.Concurrent     (forkIO)
 import Control.Concurrent.STM (atomically,newEmptyTMVarIO,takeTMVar,TMVar)
