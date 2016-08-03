@@ -24,6 +24,13 @@ opts = info (helper <*> test)
       <> progDesc "Print a greeting for TARGET"
       <> header "hello - a test for optparse-applicative")
 
+render :: Test -> String
+render (Test name q)
+  | q         = statement
+  | otherwise = map toUpper statement
+  where statement = "Hello, " ++ name ++ "! How are you?"
+
+
 main :: IO ()
 main = O.execParserReflex displayTest opts True
-  where displayTest test = mainWidget $ el "div" $ text (show test)
+  where displayTest test = mainWidget $ el "div" $ text (render test)

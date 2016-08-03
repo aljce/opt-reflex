@@ -63,7 +63,7 @@ parse parserInfo send = do
     clickPress <- submit parseResult
     elAttr "span" ("style" =: centered) (display parseResult)
     unitDyn <- foldDynM sendAndKill () (attach (current textInput) (leftmost [enterPress, clickPress]))
-    display unitDyn
+    return (unitDyn `seq` ())
   where sendAndKill (str,a) () = liftIO $ do
           setItem optionsStorage (pack str) localStorage
           atomically (putTMVar send a)
